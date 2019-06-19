@@ -3,6 +3,8 @@ package io.javabrains.moviecatalogservice.resources;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +32,7 @@ public class MovieCatalogResource {
 		
 		
 		//hardcoded list
-		return Collections.singletonList
-				(new CatalogItem("Once upon a time in Hollywood", "Brad Pitt !!!", 4));
-	}
+		return ratings.stream().map(rating->new	CatalogItem("avc","test",4))
+				.collect(Collectors.toList());
+			}
 }
