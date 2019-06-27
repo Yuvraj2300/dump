@@ -13,6 +13,12 @@ public class MovieResource {
 
 	@GetMapping("{movieId}")
 	public Movie getMovie(@PathVariable("movieId") String movieId) {
-		return new Movie(movieId, "Test");
+		if (movieId.equals("1")) {
+			return new Movie(movieId, "To Kill a Mocking Bird");
+		} else if (movieId.equals("2")) {
+			return new Movie(movieId, "Seven");
+		} else {
+			return new Movie(movieId, "DEFAULT");
+		}
 	}
 }
